@@ -3,6 +3,7 @@ package main
 type Candidate struct {
 	name             string
 	politicalPartyId int
+	number           int
 }
 
 func (c Candidate) GetName() string {
@@ -19,4 +20,12 @@ func (c Candidate) GetPoliticalPartyId() int {
 
 func (c Candidate) SetPoliticalPartyId(partyId int) {
 	c.politicalPartyId = partyId
+}
+
+func (c Candidate) GetNumber() int {
+	return c.number
+}
+
+func (c Candidate) SetNumber(number int) {
+	c.number = number
 }
