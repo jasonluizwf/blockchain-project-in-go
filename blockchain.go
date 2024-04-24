@@ -49,11 +49,11 @@ func CreateBlockchain(difficulty int) Blockchain {
 	}
 }
 
-func (b *Blockchain) addBlock(from, to string, amount float64) {
+func (b *Blockchain) addBlock(candateName string, candidateNumber int, voterId int) {
 	blockData := map[string]interface{}{
-		"from":   from,
-		"to":     to,
-		"amount": amount,
+		"candidateName": candateName,
+		"candateNumber": candidateNumber,
+		"voterId":       voterId,
 	}
 	lastBlock := b.chain[len(b.chain)-1]
 	newBlock := Block{
@@ -81,8 +81,8 @@ func main() {
 	blockchain := CreateBlockchain(2)
 
 	// record transactions on the blockchain for Alice, Bob, and John
-	blockchain.addBlock("Alice", "Bob", 5)
-	blockchain.addBlock("John", "Bob", 5)
+	blockchain.addBlock("Alice", 123, 123456789)
+	blockchain.addBlock("John", 123, 123456789)
 
 	// check if the blockchain is valid; expecting true
 	fmt.Println(blockchain.isValid())
